@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bruger redigering</title>
+<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+<script src="jquery.serialize-object.min.js"></script>
+<script src="useredit.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>Opret bruger</h1>
+		<form id="userform">
+			<div>
+				<label>Bruger Id: </label> <input type="text" name="id">
+			</div>
+			<br>
+			<div>	
+				<label>Brugernavn</label><input type="text"	name="name">
+			</div>
+			<br>
+			<button onclick="createUser();">Gem ændringer</button>
+		</form>
+	</div>
+	<hr>
+	<!-- Users -->
+	<div class="container" id="users">
+	<h1>Brugere</h1>
+		<table>
+			<thead>
+				<tr>
+					<td>BrugerID</td>
+					<td>BrugerNavn</td>
+					<!-- <td>Slet bruger<td> -->
+				</tr>
+			</thead>
+			<tbody id="usertablebody">
+			</tbody>
+		</table>
+		<hr>
+		<br>
+		<form>
+		Slet bruger med id:
+		<input type="number" id="deleteid">
+		<button onclick="deleteUser();">Slet bruger</button>
+		</form>
+	</div>
+</body>
+</html>
