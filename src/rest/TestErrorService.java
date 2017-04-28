@@ -1,5 +1,6 @@
 package rest;
 
+
 import javax.ws.rs.POST;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
@@ -15,6 +16,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+@SuppressWarnings("unused")
 @Path("errors")
 public class TestErrorService {
 
