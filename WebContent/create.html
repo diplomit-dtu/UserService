@@ -5,7 +5,33 @@
 <title>Bruger redigering</title>
 <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 <script src="jquery.serialize-object.min.js"></script>
-<script src="create.js"></script>
+<script>
+
+function createUser(){
+	event.preventDefault(); // forhindre at siden sendes til server
+	var userJson = $("#userform").serializeJSON();
+	console.log(userJson);
+	$.ajax({
+		method: "POST",  
+		url: "rest2/users",
+		data: userJson,
+		contentType: "application/json",
+		success: function(response) { 
+			if (response === "true") {
+				console.log("Success creating user"); // F12 js consol i brauser 
+			} else {
+				console.log("User already exists");
+			}
+		},
+		error: function() {
+			console.log("Error creating user");
+		}
+	});
+	console.log(userJson);
+}
+
+ </script>
+
 </head>
 <body>
 	<div class="container">
@@ -17,6 +43,11 @@
 
 			<button onclick="createUser();">Gem ændringer</button>
 		</form>
-	</div>	
+	</div>
+	
+	<br>
+	<form action="index.html" method="post" >
+			<input type="submit" value="Retur til index.html">
+	</form> <br>
 </body>
 </html>

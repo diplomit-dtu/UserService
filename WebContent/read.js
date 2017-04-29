@@ -16,5 +16,15 @@ function loadUsers(){
 	});
 }
 
+//Convenience function for generating som html from an 
+function generateUserHTML(user){
+	var deleteId = user.id;
 
+	console.log("user id "+deleteId);
+	console.log("user id" + user.id);
+
+	return 	'<tr><td>' + user.id + '</td>' +
+				'<td>' + user.name + '</td>' +
+	'</tr>';
+}  
 
