@@ -2,20 +2,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Bruger redigering</title>
+<title>Bruger liste</title>
 <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 <script src="jquery.serialize-object.min.js"></script>
-<script src="create.js"></script>
+<script src="read.js"></script>
 </head>
 <body>
 	<div class="container">
-		<h1>List bruger</h1>
-		<form id="userform">
-			<label>Bruger Id: </label> <input type="text" name="id">
-
-			<label>Brugernavn</label><input type="text"	name="name">
-
-			<button onclick="read();">Gem ændringer</button>
+		<form id="userform1">
+			<button onclick="read1();">List</button>
 		</form>
 	</div>	
 	<h1>Liste over Brugere</h1>
@@ -27,12 +22,9 @@
 					<!-- <td>Slet bruger<td> -->
 				</tr>
 			</thead>
-			<tbody id="usertablebody">
+			<tbody id="usertablebody2">
 			</tbody>
 		</table>
-		<hr>
-		<br>
-
 
 </body>
 </html>

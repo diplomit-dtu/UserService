@@ -1,12 +1,12 @@
-function loadUsers(){
-	$("#usertablebody").html(""); //tømmer element
+function read1(){
+	//$("#usertablebody2").html(""); //tømmer element
 	$.ajax({
 		method: "GET",
 		url: "rest2/users",
 		dataType: "JSON",
 		success: function(response) { 
 			$.each(response, function(i, user) {
-				$("#usertablebody").append(generateUserHTML(user));
+				$("#usertablebody2").append(generateUserHTML2(user));
 				
 			});
 		},
@@ -16,15 +16,14 @@ function loadUsers(){
 	});
 }
 
-//Convenience function for generating som html from an 
-function generateUserHTML(user){
-	var deleteId = user.id;
 
-	console.log("user id "+deleteId);
-	console.log("user id" + user.id);
+function generateUserHTML2(user){
 
 	return 	'<tr><td>' + user.id + '</td>' +
-				'<td>' + user.name + '</td>' +
+	'<td>' + user.name + '</td>' +
 	'</tr>';
+
+
+
 }  
 
