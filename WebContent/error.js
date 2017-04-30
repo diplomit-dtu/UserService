@@ -1,5 +1,3 @@
-
-
 function fail(){
 	event.preventDefault(); // forhindre at siden sendes til server
 	var userJson = $("#userform").serializeJSON();
@@ -25,4 +23,3 @@ function fail(){
 	});
 	console.log(userJson);
 }
-//}
