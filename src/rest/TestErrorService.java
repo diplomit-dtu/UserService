@@ -1,6 +1,5 @@
 package rest;
 
-
 import javax.ws.rs.POST;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
@@ -24,7 +23,7 @@ public class TestErrorService {
 	@GET //error3.html
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response get(@QueryParam("x") int x) {
-		if (x > 1) {
+		if (x > 0) {
 			return Response.ok(new User("42", "Bent")).build();
 		} else {
 		
@@ -36,7 +35,7 @@ public class TestErrorService {
 	@POST //error2.html
 	@Produces(MediaType.APPLICATION_JSON)
 	public User post(@QueryParam("x") int x) {
-		if (x > 1) {
+		if (x > 0) {
 			return new User("42", "Bent");
 			
 		} else {
@@ -48,7 +47,7 @@ public class TestErrorService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response put(@QueryParam("x") int x) throws WrongPasswordException {
 		// her skal x sættes alt efter hvordan det går med datalagring
-		if (x > 1) {
+		if (x > 0) {
 			return Response.ok(new User("42", "Bent")).build();
 			
 		} else {
