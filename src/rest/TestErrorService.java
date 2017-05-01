@@ -21,7 +21,7 @@ import javax.ws.rs.core.Response.Status;
 public class TestErrorService {
 
 	//http://localhost:8080/UserService/rest2/errors?x=2
-	@GET
+	@GET //error3
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response get(@QueryParam("x") int x) {
 		if (x > 1) {
@@ -33,7 +33,7 @@ public class TestErrorService {
 		}
 	}
 	
-	@POST
+	@POST //error2
 	@Produces(MediaType.APPLICATION_JSON)
 	public User post(@QueryParam("x") int x) {
 		if (x > 1) {
@@ -44,7 +44,7 @@ public class TestErrorService {
 		}
 	}
 	
-	@PUT
+	@PUT //error1
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response put(@QueryParam("x") int x) throws WrongPasswordException {
 		if (x > 1) {
