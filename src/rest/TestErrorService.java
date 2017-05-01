@@ -21,7 +21,7 @@ import javax.ws.rs.core.Response.Status;
 public class TestErrorService {
 
 	//http://localhost:8080/UserService/rest2/errors?x=2
-	@GET //error3
+	@GET //error3.html
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response get(@QueryParam("x") int x) {
 		if (x > 1) {
@@ -33,7 +33,7 @@ public class TestErrorService {
 		}
 	}
 	
-	@POST //error2
+	@POST //error2.html
 	@Produces(MediaType.APPLICATION_JSON)
 	public User post(@QueryParam("x") int x) {
 		if (x > 1) {
@@ -44,9 +44,10 @@ public class TestErrorService {
 		}
 	}
 	
-	@PUT //error1
+	@PUT //error1.html
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response put(@QueryParam("x") int x) throws WrongPasswordException {
+		// her skal x sættes alt efter hvordan det går med datalagring
 		if (x > 1) {
 			return Response.ok(new User("42", "Bent")).build();
 			

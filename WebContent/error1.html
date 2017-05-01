@@ -12,7 +12,7 @@ function fail(){
 	console.log(userJson);
 	$.ajax({
 		method: "put",  
-		url: "rest2/errors?x=0",
+		url: "rest2/errors?x=0",   // her bestemmes om fejl trigges
 		contentType: "application/json",
 		success: function(response) { 
 			console.log("Success");
@@ -35,20 +35,20 @@ function fail(){
 
 </head>
 <body>
-	<div class="container">
-		<h1>Opret bruger</h1>
+	<div>
+		<h1>Test error1</h1>
 		<form id="userform">
 			<label>Bruger Id: </label> <input type="text" name="id">
 
 			<label>Brugernavn</label><input type="text"	name="name">
 
-			<button onclick="fail();">Gem ændringer</button>
+			<button onclick="fail();">Test</button>
 		</form>
+		
 			<br>
 		<form action="index.html" method="post" >
 			<input type="submit" value="Retur til index.html">
 		</form> <br>
-		
 	</div>	
 </body>
 </html>
