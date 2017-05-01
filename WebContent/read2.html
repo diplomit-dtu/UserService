@@ -7,11 +7,11 @@
 <script src="jquery.serialize-object.min.js"></script>
 <script>
 function read3(){
-	//$("#usertablebody3").html(""); //tømmer element
+	event.preventDefault();
+	$("#usertablebody3").html(""); //tømmer element
 	$.ajax({
 		method: "GET",
 		url: "rest2/users",
-//		contentType: "application/json"
 		dataType: "JSON",
 		success: function(response) { 
 			$.each(response, function(i, user) {
@@ -50,9 +50,5 @@ function read3(){
 			<tbody id="usertablebody3">
 			</tbody>
 		</table>
-
-
-
-
 </body>
 </html>
