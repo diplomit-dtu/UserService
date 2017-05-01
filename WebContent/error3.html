@@ -11,7 +11,7 @@ function fail(){
 	var userJson = $("#userform").serializeJSON();
 	console.log(userJson);
 	$.ajax({
-		method: "put",  
+		method: "get",  
 		url: "rest2/errors?x=0",
 		contentType: "application/json",
 		success: function(response) { 
