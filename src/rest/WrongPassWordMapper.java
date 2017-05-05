@@ -8,8 +8,8 @@ import javax.ws.rs.ext.Provider;
 public class WrongPassWordMapper implements ExceptionMapper<WrongPasswordException> {
 		public Response toResponse(WrongPasswordException ex) {
 			return Response.status(401).
-				entity(ex.getMessage()).
-				type("text/plain").
-				build();
+				   entity(ex.getMessage()).
+				   type("text/plain").
+				   build();
 		}
 }

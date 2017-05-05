@@ -6,8 +6,7 @@
 <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 <script src="jquery.serialize-object.min.js"></script>
 <script>
-function read(){
-	event.preventDefault();
+$( document ).ready(function() {
 	$("#usertablebody").html(""); //tømmer element
 	$.ajax({
 		method: "GET",
@@ -16,30 +15,18 @@ function read(){
 		success: function(response) { 
 			$.each(response, function(i, user) {
 				$("#usertablebody").append('<tr><td>' + user.id + '</td>' + '<td>' + user.name + '</td>' + '</tr>');
-				
 			});
 		},
 		error: function() {
 			console.log("Error loading users");
 		}
 	});
-}
+});
 </script>
 
 </head>  
 <body>
-	<div>
-		<form>
-			<button onclick="read();">List</button>
-		</form>
-	</div>	
-
-	<br>
-	<form action="index.html" method="post" >
-			<input type="submit" value="Retur til index.html">
-	</form> <br>
-
-	<h1>Liste over Brugere</h1>
+	<h2>Liste over Brugere</h2>
 		<table>
 			<thead>
 				<tr>
@@ -50,5 +37,9 @@ function read(){
 			<tbody id="usertablebody">
 			</tbody>
 		</table>
+	<br>
+	<form action="index.html" method="post" >
+			<input type="submit" value="Retur til index.html">
+	</form> <br>
 </body>
 </html>

@@ -5,50 +5,46 @@
 <title>Bruger redigering</title>
 <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 <script src="jquery.serialize-object.min.js"></script>
-<script >
-function fail(){
+<script>
+function update(){
 	event.preventDefault(); // forhindre at siden sendes til server
 	var userJson = $("#userform").serializeJSON();
 	console.log(userJson);
 	$.ajax({
-		method: "put",  
-		url: "rest2/errors?x=0",   // her bestemmes om fejl trigges 0 for fejl, 1 for ok 
+		method: "PUT",  
+		url: "rest2/users",
+		data: userJson,
 		contentType: "application/json",
 		success: function(response) { 
-			console.log("Success");
-			console.log(response.name);
+			if (response === "true") {
+				console.log("Success update of user"); 
+			} else {
+				console.log("User not found");
+			}
 		},
-		error: function(jqXHR, text, error) {
-			console.log(error);
-			console.log(text);
-			console.log(jqXHR.responseText);
-			console.log(jqXHR);
-			console.error("Error12");
-			console.error("Status: " + jqXHR.status);
-			console.error("Text: " + text);
-			console.error("Error: " + error);
+		error: function() {
+			console.log("Error editing user");
 		}
 	});
 	console.log(userJson);
 }
 </script>
-
 </head>
 <body>
-	<div>
-		<h1>Test error3.html</h1>
+	<div class="container">
+		<h1>Opret bruger</h1>
 		<form id="userform">
 			<label>Bruger Id: </label> <input type="text" name="id">
 
 			<label>Brugernavn</label><input type="text"	name="name">
 
-			<button onclick="fail();">Test</button>
+			<button onclick="update();">Gem ændringer</button>
 		</form>
-		
-			<br>
-		<form action="index.html" method="post" >
+	</div>
+	
+	<br>
+	<form action="index.html" method="post" >
 			<input type="submit" value="Retur til index.html">
-		</form> <br>
-	</div>	
+	</form> <br>
 </body>
 </html>

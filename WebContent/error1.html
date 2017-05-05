@@ -9,34 +9,38 @@
 function fail(){
 	event.preventDefault(); // forhindre at siden sendes til server
 	var userJson = $("#userform").serializeJSON();
-	console.log(userJson);
+	console.log("1: Json objekt inden ajax kald: " + userJson);
 	$.ajax({
 		method: "get",  
-		url: "rest2/errors?x=0",
+		url: "rest2/errors?x=0",  // 0 for at simulerer fejl (error:), 1 for at simulerer ok (success:)
 		contentType: "application/json",
 		success: function(response) { 
-			console.log("Success");
-			console.log(response.name);
+			console.log("3: Success");
+			console.log("4 navn på user: " + response.name);
+			console.log("5 status ?: " + response.status);   // virker ikke 
+			console.log("6 herefter responce objekt når console.log printer");
+			console.log(response);
+			
 		},
 		error: function(jqXHR, text, error) {
-			console.log(error);
-			console.log(text);
-			console.log(jqXHR.responseText);
-			console.log(jqXHR);
+//			console.log(error);
+//			console.log(text);
+//			console.log(jqXHR.responseText);
+//			console.log(jqXHR);
 			console.error("Error12");
-			console.error("Status: " + jqXHR.status);
-			console.error("Text: " + text);
-			console.error("Error: " + error);
+//			console.error("Status: " + jqXHR.status);
+//			console.error("Text: " + text);
+//			console.error("Error: " + error);
 		}
 	});
-	console.log(userJson);
+	console.log("2: Json objekt efter ajax kald: "+ userJson);
 }
 </script>
 
 </head>
 <body>
 	<div>
-		<h1>Test error3.html</h1>
+		<h1>Test error1.html</h1>
 		<form id="userform">
 			<label>Bruger Id: </label> <input type="text" name="id">
 
